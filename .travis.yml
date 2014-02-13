@@ -14,8 +14,7 @@ before_script:
   - pwd
 
   # install drush
-  - sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
-  - composer global require drush/drush:6.2.0
+  - composer global require drush/drush:6.*
   - ls -al
   - ls -al vendor
 
