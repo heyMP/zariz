@@ -11,11 +11,9 @@ mysql:
 before_script:
   # navigate out of module directory to prevent blown stack by recursive module lookup
   - cd ../..
-  - pwd
 
   # install drush
   - composer global require drush/drush:6.2.0
-  - ls -al
 
   # install php packages required for running a web server from drush on php 5.3
   - sudo apt-get update > /dev/null
@@ -23,7 +21,7 @@ before_script:
 
   # create new site, stubbing sendmail path with true to prevent delivery errors and manually resolving drush path
   - mysql -e 'create database zariz'
-  - php -d sendmail_path=`which true` /home/travis/build/drush/drush.php --yes core-quick-drupal --profile=testing --no-server --db-url=mysql://root:@127.0.0.1/zariz --enable=simpletest zariz og_purl
+  - drush --yes core-quick-drupal --profile=testing --no-server --db-url=mysql://root:@127.0.0.1/zariz --enable=simpletest zariz og_purl
 
   # reference and enable zariz in build site
   - ln -s $(readlink -e $(cd -)) zariz/drupal/sites/all/modules/zariz
