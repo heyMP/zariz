@@ -14,7 +14,7 @@ before_script:
 
   # install drush
   - sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
-  - composer require drush/drush:6.2.0
+  - composer require drush/drush:6.*
   - ls -al
 
   # install php packages required for running a web server from drush on php 5.3
