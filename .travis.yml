@@ -12,10 +12,10 @@ before_script:
   # navigate out of module directory to prevent blown stack by recursive module lookup
   - cd ../..
   - pwd
-  - ls -al
 
   # install drush
   - composer global require drush/drush:6.2.0
+  - ls -al
 
   # install php packages required for running a web server from drush on php 5.3
   - sudo apt-get update > /dev/null
